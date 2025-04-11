@@ -1,7 +1,8 @@
+import type { APIRoute } from "astro";
 import { getSecret } from "astro:env/server";
 const API_URL = `https://toteatglobal.appspot.com/mw/or/1.0/products?xir=${getSecret('TOTEAT_XIR')}&xil=${getSecret('TOTEAT_XIL')}&xiu=${getSecret('TOTEAT_XIU')}&xapitoken=${getSecret('TOTEAT_API_TOKEN')}&activeProducts=true`;
 
-export async function ALL(request: Request) {
+export const ALL: APIRoute = async ({request}:{request:Request})  => {
     const { searchParams } = new URL(request.url);
     
     try{
