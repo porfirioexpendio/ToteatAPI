@@ -1,7 +1,7 @@
 import { getSecret } from "astro:env/server";
 const API_URL = `https://toteatglobal.appspot.com/mw/or/1.0/products?xir=${getSecret('TOTEAT_XIR')}&xil=${getSecret('TOTEAT_XIL')}&xiu=${getSecret('TOTEAT_XIU')}&xapitoken=${getSecret('TOTEAT_API_TOKEN')}&activeProducts=true`;
 
-export async function GET(request: Request) {
+export async function OPTIONS(request: Request) {
 
     const { searchParams } = new URL(request.url);
     
