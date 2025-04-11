@@ -3,6 +3,14 @@ const API_URL = `https://toteatglobal.appspot.com/mw/or/1.0/products?xir=${getSe
 
 export async function OPTIONS(request: Request) {
 
+    return Response.json({
+        response:'Testing',
+        request
+    });
+}
+
+export async function GET(request: Request) {
+
     const { searchParams } = new URL(request.url);
     
     try{
